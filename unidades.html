@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Portafolio Académico</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#0d0d0d,#1a1a1a);
+    color:#e5d3a1;
+}
+
+/* NAV */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 70px;
+    border-bottom:1px solid rgba(229,211,161,0.2);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{ width:50px; }
+
+.logo-texto span{
+    color:#a38b5d;
+    font-size:14px;
+}
+
+/* MENU */
+.menu{
+    display:flex;
+    gap:35px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#e5d3a1;
+    font-size:16px;
+    position:relative;
+}
+
+.menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0%;
+    height:2px;
+    background:#e5d3a1;
+    box-shadow:0 0 10px #e5d3a1;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* HEADER */
+.header{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.header h1{
+    font-size:42px;
+}
+
+.header p{
+    color:#a38b5d;
+}
+
+/* CONTENEDOR */
+.contenedor{
+    display:grid;
+    grid-template-columns: repeat(2, 420px);
+    justify-content:center;
+    gap:70px;
+    padding:50px;
+}
+
+/* UNIDAD */
+.unidad{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(229,211,161,0.3);
+    border-radius:16px;
+    padding:40px;
+    text-align:center;
+    box-shadow:
+        0 0 15px rgba(229,211,161,0.2),
+        0 0 30px rgba(0,0,0,0.8);
+}
+
+/* TITULO */
+.unidad h2{
+    font-size:30px;
+    margin-bottom:35px;
+    text-shadow:0 0 10px #e5d3a1;
+}
+
+/* SEMANAS (SEPARACIÓN CLAVE) */
+.semanas{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:45px; /* AQUÍ ESTÁ LA SOLUCIÓN */
+}
+
+/* BLOQUE */
+.bloque{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin:10px;
+}
+
+/* SEMANA */
+.semana{
+    width:100%;
+    padding:22px;
+    font-size:18px;
+    border-radius:16px;
+    cursor:pointer;
+    border:1px solid #e5d3a1;
+
+    background:rgba(0,0,0,0.8);
+
+    box-shadow:
+        0 0 8px #e5d3a1,
+        0 0 20px rgba(229,211,161,0.5);
+
+    transition:0.3s;
+}
+
+/* HOVER NEON */
+.semana:hover{
+    transform:scale(1.08);
+    box-shadow:
+        0 0 15px #e5d3a1,
+        0 0 30px #e5d3a1,
+        0 0 50px rgba(229,211,161,0.8);
+}
+
+/* DETALLE */
+.detalle{
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    width:100%;
+    border-radius:10px;
+    background:rgba(0,0,0,0.9);
+    border:1px solid #e5d3a1;
+    box-shadow:0 0 10px rgba(229,211,161,0.5);
+}
+
+/* BOTÓN */
+.btn{
+    margin-top:10px;
+    display:inline-block;
+    padding:8px 16px;
+    font-size:15px;
+    background:#a38b5d;
+    color:#000;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.btn:hover{
+    box-shadow:
+        0 0 10px #e5d3a1,
+        0 0 25px #e5d3a1;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="upla.png">
+        <div class="logo-texto">
+            <h3>Universidad Peruana Los Andes</h3>
+            <span>Mendoza Vial Sergio</span>
+        </div>
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="#">Unidades</a>
+        <a href="login.html">Login</a>
+    </div>
+</nav>
+
+<div class="header">
+    <h1>Portafolio Académico</h1>
+    <p>Curso: Base de Datos II</p>
+</div>
+
+<div class="contenedor">
+
+<script>
+function bloque(num){
+return `
+<div class="bloque">
+    <div class="semana" onclick="toggle(${num})">Semana ${num}</div>
+
+    <div id="det${num}" class="detalle">
+        Archivo: semana${num}.pdf <br>
+        <a class="btn" target="_blank"
+        href="https://raw.githubusercontent.com/TU_USUARIO/TU_REPO/main/Semana${num}/semana${num}.pdf">
+        Ver archivo
+        </a>
+    </div>
+</div>
+`;
+}
+</script>
+
+<div class="unidad">
+<h2>Unidad 1</h2>
+<div class="semanas">
+<script>
+document.write(bloque(1)+bloque(2)+bloque(3)+bloque(4));
+</script>
+</div>
+</div>
+
+<div class="unidad">
+<h2>Unidad 2</h2>
+<div class="semanas">
+<script>
+document.write(bloque(5)+bloque(6)+bloque(7)+bloque(8));
+</script>
+</div>
+</div>
+
+<div class="unidad">
+<h2>Unidad 3</h2>
+<div class="semanas">
+<script>
+document.write(bloque(9)+bloque(10)+bloque(11)+bloque(12));
+</script>
+</div>
+</div>
+
+<div class="unidad">
+<h2>Unidad 4</h2>
+<div class="semanas">
+<script>
+document.write(bloque(13)+bloque(14)+bloque(15)+bloque(16));
+</script>
+</div>
+</div>
+
+</div>
+
+<footer>
+© 2026 - Presentación Académica
+</footer>
+
+<script>
+function toggle(n){
+    let el=document.getElementById("det"+n);
+    el.style.display = el.style.display==="block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

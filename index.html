@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Inicio</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#0d0d0d,#1a1a1a);
+    color:#e5d3a1;
+}
+
+/* NAVBAR */
+nav{
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(229,211,161,0.3);
+    box-shadow:0 0 15px rgba(229,211,161,0.2);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:45px;
+    filter: drop-shadow(0 0 8px #e5d3a1);
+}
+
+/* TEXTO LOGO */
+.texto-logo{
+    display:flex;
+    flex-direction:column;
+}
+
+.texto-logo h1{
+    margin:0;
+    font-size:16px;
+}
+
+.texto-logo span{
+    font-size:13px;
+    color:#a38b5d;
+}
+
+/* MENU */
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:#e5d3a1;
+    text-decoration:none;
+    position:relative;
+}
+
+/* EFECTO NEON */
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0%;
+    height:2px;
+    background:#e5d3a1;
+    box-shadow:0 0 10px #e5d3a1;
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    margin-top:80px;
+}
+
+.hero h2{
+    font-size:55px;
+    text-shadow:
+        0 0 10px #e5d3a1,
+        0 0 25px #e5d3a1,
+        0 0 45px rgba(229,211,161,0.8);
+}
+
+.hero p{
+    color:#a38b5d;
+}
+
+/* CARD */
+.sobre-mi{
+    display:flex;
+    justify-content:center;
+    margin-top:60px;
+}
+
+.card{
+    background:rgba(0,0,0,0.8);
+    padding:30px;
+    border-radius:15px;
+    width:320px;
+    text-align:center;
+    border:1px solid #e5d3a1;
+
+    box-shadow:
+        0 0 10px rgba(229,211,161,0.4),
+        0 0 25px rgba(229,211,161,0.3);
+
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:
+        0 0 20px #e5d3a1,
+        0 0 40px rgba(229,211,161,0.8);
+}
+
+/* FOTO */
+.foto{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    overflow:hidden;
+    margin:auto;
+    border:2px solid #e5d3a1;
+
+    box-shadow:
+        0 0 15px #e5d3a1,
+        0 0 30px rgba(229,211,161,0.6);
+}
+
+.foto img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* INFO */
+.info{
+    margin-top:70px;
+    padding:40px;
+    text-align:center;
+}
+
+.info h2{
+    text-shadow:0 0 10px #e5d3a1;
+}
+
+.info p{
+    max-width:700px;
+    margin:auto;
+    color:#a38b5d;
+}
+
+/* BOXES */
+.extra{
+    margin-top:50px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.box{
+    background:rgba(0,0,0,0.8);
+    padding:20px;
+    border-radius:12px;
+    width:200px;
+    text-align:center;
+    border:1px solid #e5d3a1;
+
+    box-shadow:
+        0 0 10px rgba(229,211,161,0.4);
+
+    transition:0.3s;
+}
+
+.box:hover{
+    transform:translateY(-5px);
+    box-shadow:
+        0 0 20px #e5d3a1,
+        0 0 35px rgba(229,211,161,0.7);
+}
+
+/* FOOTER */
+footer{
+    margin-top:60px;
+    padding:20px;
+    text-align:center;
+    border-top:1px solid rgba(229,211,161,0.3);
+    box-shadow:0 0 15px rgba(229,211,161,0.2);
+    color:#a38b5d;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="upla.png">
+
+        <div class="texto-logo">
+            <h1>Universidad Peruana Los Andes</h1>
+            <span>Mendoza Vial Sergio</span>
+        </div>
+    </div>
+
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="unidades.html">Unidades</a></li>
+        <li><a href="login.html">Login</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h2>Base de Datos II</h2>
+    <p>Bienvenido a mi sitio académico</p>
+</div>
+
+<div class="sobre-mi">
+    <div class="card">
+        <div class="foto">
+            <img src="elmo.png">
+        </div>
+        <h3>Mendoza Vial Sergio</h3>
+        <p>Estudiante enfocado en desarrollo web y bases de datos.</p>
+    </div>
+</div>
+
+<div class="info">
+    <h2>Sobre este sitio</h2>
+    <p>
+        Este sitio web presenta mis trabajos y avances en el curso de Base de Datos,
+        con un enfoque moderno en el desarrollo web.
+    </p>
+</div>
+
+<div class="extra">
+    <div class="box">📂 Proyectos</div>
+    <div class="box">📊 Trabajos</div>
+    <div class="box">📘 Aprendizaje</div>
+    <div class="box">💻 Desarrollo Web</div>
+</div>
+
+<footer>
+    © 2026 - Mendoza Vial Sergio
+</footer>
+
+</body>
+</html>
