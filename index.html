@@ -4,100 +4,154 @@
 <meta charset="UTF-8">
 <title>Inicio</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
 <style>
+
+/* ------------------ GENERAL ------------------ */
 body{
     margin:0;
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#0d0d0d,#1a1a1a);
+    font-family:'Share Tech Mono', monospace;
+    background:#000;
     color:#e5d3a1;
+    overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* FONDO MATRIX */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+/* ------------------ NAV ------------------ */
 nav{
     padding:15px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    border-bottom:1px solid rgba(229,211,161,0.3);
-    box-shadow:0 0 15px rgba(229,211,161,0.2);
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(6px);
+    border-bottom:2px solid rgba(229,211,161,0.3);
+    box-shadow:0 0 25px rgba(229,211,161,0.3);
+    position:relative;
+}
+
+/* línea neon */
+nav::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:3px;
+    background:linear-gradient(90deg,transparent,#e5d3a1,transparent);
+    animation:linea 4s linear infinite;
+}
+
+@keyframes linea{
+    0%{transform:translateX(-100%)}
+    100%{transform:translateX(100%)}
 }
 
 .logo{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:15px;
 }
 
 .logo img{
-    width:45px;
-    filter: drop-shadow(0 0 8px #e5d3a1);
+    width:60px;
+    filter:drop-shadow(0 0 15px #00eaff);
+    animation:logo 2s infinite alternate;
 }
 
-/* TEXTO LOGO */
-.texto-logo{
-    display:flex;
-    flex-direction:column;
+@keyframes logo{
+    0%{filter:drop-shadow(0 0 5px #00eaff);}
+    100%{filter:drop-shadow(0 0 20px #00eaff);}
 }
 
 .texto-logo h1{
     margin:0;
-    font-size:16px;
+    font-size:20px;
+    animation:glitch 2s infinite;
+}
+
+@keyframes glitch{
+    0%{text-shadow:2px 2px red;}
+    50%{text-shadow:-2px 2px cyan;}
+    100%{text-shadow:2px -2px lime;}
 }
 
 .texto-logo span{
-    font-size:13px;
     color:#a38b5d;
 }
 
-/* MENU */
-nav ul{
+/* ------------------ MENU CYBER ------------------ */
+.menu-cyber{
     list-style:none;
     display:flex;
-    gap:30px;
+    gap:40px;
 }
 
-nav a{
+.btn-cyber{
+    position:relative;
+    padding:8px 18px;
     color:#e5d3a1;
     text-decoration:none;
-    position:relative;
-}
-
-/* EFECTO NEON */
-nav a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-4px;
-    width:0%;
-    height:2px;
-    background:#e5d3a1;
-    box-shadow:0 0 10px #e5d3a1;
+    font-size:18px;
+    letter-spacing:1px;
     transition:0.3s;
 }
 
-nav a:hover::after{
+/* línea neon */
+.btn-cyber::after{
+    content:"";
+    position:absolute;
+    bottom:-3px;
+    left:0;
     width:100%;
+    height:2px;
+    background:#e5d3a1;
+    box-shadow:0 0 10px #e5d3a1,0 0 20px #e5d3a1;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:0.3s;
 }
 
-/* HERO */
+.btn-cyber:hover::after{
+    transform:scaleX(1);
+}
+
+/* hover */
+.btn-cyber:hover{
+    color:#fff;
+    text-shadow:0 0 10px #e5d3a1, 0 0 20px #e5d3a1;
+    animation:glitch-menu 0.3s steps(2,end);
+}
+
+@keyframes glitch-menu{
+    0%{text-shadow:2px 0 red, -2px 0 cyan;}
+    50%{text-shadow:-2px 0 red, 2px 0 cyan;}
+    100%{text-shadow:0 0 10px #e5d3a1;}
+}
+
+/* ------------------ HERO ------------------ */
 .hero{
     text-align:center;
     margin-top:80px;
 }
 
 .hero h2{
-    font-size:55px;
-    text-shadow:
-        0 0 10px #e5d3a1,
-        0 0 25px #e5d3a1,
-        0 0 45px rgba(229,211,161,0.8);
+    font-size:60px;
+    text-shadow:0 0 20px #e5d3a1,0 0 40px #e5d3a1;
 }
 
 .hero p{
     color:#a38b5d;
 }
 
-/* CARD */
+/* ------------------ CARD ------------------ */
 .sobre-mi{
     display:flex;
     justify-content:center;
@@ -108,36 +162,26 @@ nav a:hover::after{
     background:rgba(0,0,0,0.8);
     padding:30px;
     border-radius:15px;
-    width:320px;
+    width:330px;
     text-align:center;
     border:1px solid #e5d3a1;
-
-    box-shadow:
-        0 0 10px rgba(229,211,161,0.4),
-        0 0 25px rgba(229,211,161,0.3);
-
+    box-shadow:0 0 20px rgba(229,211,161,0.5);
     transition:0.3s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    box-shadow:
-        0 0 20px #e5d3a1,
-        0 0 40px rgba(229,211,161,0.8);
+    transform:translateY(-10px);
+    box-shadow:0 0 30px #e5d3a1;
 }
 
-/* FOTO */
 .foto{
-    width:120px;
-    height:120px;
+    width:130px;
+    height:130px;
     border-radius:50%;
     overflow:hidden;
     margin:auto;
     border:2px solid #e5d3a1;
-
-    box-shadow:
-        0 0 15px #e5d3a1,
-        0 0 30px rgba(229,211,161,0.6);
+    box-shadow:0 0 20px #e5d3a1;
 }
 
 .foto img{
@@ -146,26 +190,15 @@ nav a:hover::after{
     object-fit:cover;
 }
 
-/* INFO */
+/* ------------------ INFO ------------------ */
 .info{
     margin-top:70px;
     padding:40px;
     text-align:center;
 }
 
-.info h2{
-    text-shadow:0 0 10px #e5d3a1;
-}
-
-.info p{
-    max-width:700px;
-    margin:auto;
-    color:#a38b5d;
-}
-
-/* BOXES */
+/* ------------------ BOXES ------------------ */
 .extra{
-    margin-top:50px;
     display:flex;
     justify-content:center;
     gap:25px;
@@ -179,48 +212,57 @@ nav a:hover::after{
     width:200px;
     text-align:center;
     border:1px solid #e5d3a1;
-
-    box-shadow:
-        0 0 10px rgba(229,211,161,0.4);
-
+    box-shadow:0 0 10px rgba(229,211,161,0.4);
     transition:0.3s;
 }
 
 .box:hover{
     transform:translateY(-5px);
-    box-shadow:
-        0 0 20px #e5d3a1,
-        0 0 35px rgba(229,211,161,0.7);
+    box-shadow:0 0 25px #e5d3a1;
 }
 
-/* FOOTER */
+/* ------------------ TERMINAL ------------------ */
+.terminal{
+    margin:60px auto;
+    width:80%;
+    max-width:700px;
+    background:#000;
+    border:1px solid #0f0;
+    padding:20px;
+    color:#0f0;
+    font-size:14px;
+    box-shadow:0 0 15px #0f0;
+}
+
+/* ------------------ FOOTER ------------------ */
 footer{
     margin-top:60px;
     padding:20px;
     text-align:center;
     border-top:1px solid rgba(229,211,161,0.3);
-    box-shadow:0 0 15px rgba(229,211,161,0.2);
     color:#a38b5d;
 }
 
 </style>
 </head>
+
 <body>
+
+<canvas id="matrix"></canvas>
 
 <nav>
     <div class="logo">
         <img src="upla.png">
-
         <div class="texto-logo">
             <h1>Universidad Peruana Los Andes</h1>
             <span>Mendoza Vial Sergio</span>
         </div>
     </div>
 
-    <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="unidades.html">Unidades</a></li>
-        <li><a href="login.html">Login</a></li>
+    <ul class="menu-cyber">
+        <li><a href="index.html" class="btn-cyber">Inicio</a></li>
+        <li><a href="unidades.html" class="btn-cyber">Unidades</a></li>
+        <li><a href="login.html" class="btn-cyber">Login</a></li>
     </ul>
 </nav>
 
@@ -232,7 +274,7 @@ footer{
 <div class="sobre-mi">
     <div class="card">
         <div class="foto">
-            <img src="elmo.png">
+            <img src="dj.jfif">
         </div>
         <h3>Mendoza Vial Sergio</h3>
         <p>Estudiante enfocado en desarrollo web y bases de datos.</p>
@@ -241,10 +283,7 @@ footer{
 
 <div class="info">
     <h2>Sobre este sitio</h2>
-    <p>
-        Este sitio web presenta mis trabajos y avances en el curso de Base de Datos,
-        con un enfoque moderno en el desarrollo web.
-    </p>
+    <p>Este sitio web presenta mis trabajos y avances en el curso de Base de Datos.</p>
 </div>
 
 <div class="extra">
@@ -254,9 +293,54 @@ footer{
     <div class="box">💻 Desarrollo Web</div>
 </div>
 
+<div class="terminal">
+> Iniciando sistema... <br>
+> Acceso concedido ✔ <br>
+> Cargando base de datos... <br>
+> Usuario: Sergio <br>
+</div>
+
 <footer>
-    © 2026 - Mendoza Vial Sergio
+© 2026 - Mendoza Vial Sergio
 </footer>
+
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+let letters = "01";
+letters = letters.split("");
+
+let fontSize = 14;
+let columns = canvas.width / fontSize;
+
+let drops = [];
+for(let x = 0; x < columns; x++)
+    drops[x] = 1;
+
+function draw(){
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "#0f0";
+    ctx.font = fontSize + "px monospace";
+
+    for(let i = 0; i < drops.length; i++){
+        let text = letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975)
+            drops[i] = 0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw,33);
+</script>
 
 </body>
 </html>
